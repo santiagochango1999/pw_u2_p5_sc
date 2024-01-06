@@ -4,18 +4,21 @@
   <Contador titulo="Contador2" :valor="calcularvalor()"/>
 
   <Contador titulo="Contador3" /> -->
-  <Calculadora/>
+  <!-- <Calculadora/> -->
+  <Pregunta/>
 </template>
 
 <script>
 /* import Contador from "./components/Contador.vue";
  */
-import Calculadora from "./components/Calculadora.vue";
+//import Calculadora from "./components/Calculadora.vue";
+import Pregunta from "./components/Pregunta.vue"
 export default {
   name: "App",
   components: {
     //Contador,
-    Calculadora,
+    //Calculadora,
+    Pregunta,
   },
   /* methods: {
     calcularvalor() {
@@ -32,6 +35,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 60px; 
 }
 </style>
