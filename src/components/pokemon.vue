@@ -1,13 +1,16 @@
 <template>
   <div class="container">
     <p>Ingresa un id:</p>
-    <input @Keypress.enter="consumirApi()" v-model="id" type="text" />
+    <input v-model="id" type="text" @keypress.enter="consumirApi()" />
 
-    <!-- <div class="devolucion" v-if="preguntavalida !== true"> -->
-    <h1>name:{{name}}</h1>
-    <h1>weight:{{weight}}</h1>
-    <h1>baseEsperiencia:{{baseEsperiencia}}</h1>
-
+    <form class="devolucion" v-if="preguntavalida !== false" action="">
+      <label>name:</label>
+      <input v-model="name" type="text" />
+      <label>weight:</label>
+      <input v-model="weight" type="text" />
+      <label>baseEsperiencia:</label>
+      <input v-model="baseEsperiencia" type="text" />
+    </form>
   </div>
 </template>
 
@@ -24,6 +27,7 @@ export default {
   },
   methods: {
     async consumirApi() {
+      this.preguntavalida = true;
       const { name, weight, base_experience } = await fetch(
         this.construirURLAPI(this.id)
       ).then((r) => r.json());
@@ -51,10 +55,15 @@ input:focus {
   outline: none;
 }
 p,
-h2,
-h1 {
+label {
   color: aliceblue;
   font-size: 20px;
   margin-top: 10px;
 }
+form {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
 </style>

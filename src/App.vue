@@ -5,24 +5,24 @@
 
   <Contador titulo="Contador3" /> -->
   <!-- <Calculadora/> -->
-  <Pregunta/>
+  <pokemon/>
 </template>
 
 <script>
 /* import Contador from "./components/Contador.vue";
  */
 //import Calculadora from "./components/Calculadora.vue";
-import Pregunta from "./components/Pregunta.vue"
+//import Pregunta from "./components/Pregunta.vue"
 
-//import pokemon from "./components/pokemon.vue";
+import pokemon from "./components/pokemon.vue";
 
 export default {
   name: "App",
   components: {
     //Contador,
     //Calculadora,
-    Pregunta,
-    //pokemon,
+    //Pregunta,
+    pokemon,
   },
   /* methods: {
     calcularvalor() {
