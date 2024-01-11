@@ -1,14 +1,14 @@
 <template>
-  <img
-    src="https://yesno.wtf/assets/no/30-d37eee83c3c2180de4edb7da6fa9f5b7.gif"
-    alt="No se puede visualizar"
-  />
+  <img v-if="img !== null" :src="img" alt="No se puede visualizar" />
   <div class="dark"></div>
   <div class="container">
     <input v-model="pregunta" type="text" />
     <p>Recuerda que debes terminar con el signo de interogacion (?)</p>
-    <h2>{{ pregunta }}</h2>
-    <h1>SI, NO...........</h1>
+
+    <div v-if="preguntavalida!==false">
+      <h2>{{ pregunta }}</h2>
+      <h1>{{ respuesta }}</h1>
+    </div>
   </div>
 </template>
 
@@ -16,24 +16,38 @@
 export default {
   data() {
     return {
-      pregunta: "Voy a pasar de semestre",
+      pregunta: null,
+      respuesta: null,
+      img: null,
+      preguntavalida: false,
     };
   },
   watch: {
     pregunta(value, oldvalue) {
+      this.preguntavalida=false;
       if (!value.includes("?")) return;
       //consumo del Api
-      this.consumirApi()
+      this.consumirApi();
+      this.preguntavalida=true;
     },
   },
   methods: {
     async consumirApi() {
-      const {answer,image} = await fetch("https://yesno.wtf/api").then((respuesta) =>
-        respuesta.json()
+      this.respuesta="pensando";
+      this.respuesta="pensando.";
+      this.respuesta="pensando..";
+      this.respuesta="pensando...";
+      const { answer, image } = await fetch("https://yesno.wtf/api").then((r) =>
+        r.json()
       );
-      console.log(answer);
-      console.log(image);
+      
+      this.respuesta = answer==='yes'?'SI!':'NO!';
+      this.img = image;
     },
+    construirURLAPI(id){
+      return 'https://pokeapi.co/api/v2/pokemon/'+id;
+
+    }
   },
 };
 </script>

@@ -13,12 +13,16 @@
  */
 //import Calculadora from "./components/Calculadora.vue";
 import Pregunta from "./components/Pregunta.vue"
+
+//import pokemon from "./components/pokemon.vue";
+
 export default {
   name: "App",
   components: {
     //Contador,
     //Calculadora,
     Pregunta,
+    //pokemon,
   },
   /* methods: {
     calcularvalor() {
