@@ -5,7 +5,8 @@
 
   <Contador titulo="Contador3" /> -->
   <!-- <Calculadora/> -->
-  <pokemon/>
+ <!--  <pokemon/> -->
+ <PokemonPage/>
 </template>
 
 <script>
@@ -14,7 +15,8 @@
 //import Calculadora from "./components/Calculadora.vue";
 //import Pregunta from "./components/Pregunta.vue"
 
-import pokemon from "./components/pokemon.vue";
+//import pokemon from "./components/pokemon.vue";
+import PokemonPage from "./pages/PokemonPage.vue";
 
 export default {
   name: "App",
@@ -22,7 +24,9 @@ export default {
     //Contador,
     //Calculadora,
     //Pregunta,
-    pokemon,
+    //pokemon,
+    PokemonPage,
+    
   },
   /* methods: {
     calcularvalor() {
