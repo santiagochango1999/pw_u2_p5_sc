@@ -1,19 +1,29 @@
 <template>
   <h1>Adivina el pokemon</h1>
-  <PokemonImagen pokemonID="6" :show="true"/>
+  <PokemonImagen pokemonID="6" :show="true" />
   <PokemonOpciones />
 </template>
 
 <script>
 import PokemonImagen from "../components/PokemonImagen.vue";
 import PokemonOpciones from "../components/PokemonOpciones.vue";
-import obtenerIDPokemonFachada from "../helpers/pokemonHelper"
+import getPokemonsFachada from "../helpers/pokemonHelper";
 
-obtenerIDPokemonFachada()
 export default {
   components: {
     PokemonImagen,
     PokemonOpciones,
+  },
+  mounted() {
+    console.log("se monto el componente Pokemon pag");
+    this.cargaInicial()
+  },
+  methods: {
+    async cargaInicial() {
+      const arregloPokemons = await getPokemonsFachada();
+      console.log("desde componente");
+      console.log(arregloPokemons);
+    },
   },
 };
 </script>
