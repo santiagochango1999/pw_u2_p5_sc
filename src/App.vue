@@ -6,8 +6,8 @@
   <Contador titulo="Contador3" /> -->
   <!-- <Calculadora/> -->
   <!--  <pokemon/> -->
-  <!-- <PokemonPage/> -->
-  <div class="container" v-if="mostrarjuego">
+  <PokemonPage/>
+  <!-- <div class="container" v-if="mostrarjuego">
     <h2>Puntaje:{{ puntaje }}</h2>
     <h2>Intento:{{ intento }}</h2>
     <div class="container2">
@@ -26,7 +26,7 @@
     <h1>Puntaje: {{ puntaje }}</h1>
     <h1>Felicitaciones has ganado un premio de $10.000,00</h1>
     <button v-on:click="reiniciar">Nuevo Juego</button>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -36,8 +36,8 @@
 //import Pregunta from "./components/Pregunta.vue"
 
 //import pokemon from "./components/pokemon.vue";
-//import PokemonPage from "./pages/PokemonPage.vue";
-import imagen from "./components/imagen.vue";
+import PokemonPage from "./pages/PokemonPage.vue";
+//import imagen from "./components/imagen.vue";
 
 export default {
   name: "App",
@@ -46,10 +46,10 @@ export default {
     //Calculadora,
     //Pregunta,
     //pokemon,
-    /* PokemonPage, */
-    imagen,
-  },
-  data() {
+    PokemonPage,
+/*     imagen,
+ */  },
+  /* data() {
     return {
       puntaje: 0,
       intento: 0,
@@ -135,7 +135,7 @@ export default {
       this.mostrarperdedor = false;
       this.mostrarjuego = true;
     },
-  },
+  }, */
   /* methods: {
     calcularvalor() {
       return 5 + 5 * 10;
@@ -153,7 +153,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.container {
+/*.container {
   display: grid;
   align-content: center;
   justify-content: center;
@@ -181,5 +181,5 @@ button {
   font-family: "Times New Roman", Times, serif;
   font-size: 25px;
   border-radius: 4px;
-}
+}*/
 </style>

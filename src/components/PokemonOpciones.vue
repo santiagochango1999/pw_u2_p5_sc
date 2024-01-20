@@ -1,16 +1,20 @@
 <template>
   <div class="option_Container">
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
+    <ul >
+      <li v-for="pokemon in pokemons" :key="pokemon.id" @click="$emit('selecciono',pokemon.id)">{{pokemon.nombre}}</li>
     </ul>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props:{
+    pokemons:{
+      typo:Array,
+      required:true,
+    }
+  }
+};
 </script>
 
 <style scoped>
