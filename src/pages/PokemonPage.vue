@@ -7,7 +7,7 @@
 <script>
 import PokemonImagen from "../components/PokemonImagen.vue";
 import PokemonOpciones from "../components/PokemonOpciones.vue";
-import getPokemonsFachada from "../helpers/pokemonHelper";
+import obtenerPokemonFachada from "../helpers/pokemonHelper";
 
 export default {
   components: {
@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     async cargaInicial() {
-      const arregloPokemons = await getPokemonsFachada();
+      const arregloPokemons = await obtenerPokemonFachada();
       console.log("desde componente");
       console.log(arregloPokemons);
     },
