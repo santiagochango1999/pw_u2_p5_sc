@@ -5,7 +5,15 @@
   <div v-else>
     <h1>Adivina el pokemon</h1>
     <PokemonImagen :pokemonID="pokemonGanador.id" :show="mostrarPokemon" />
-    <PokemonOpciones @selecciono="revisarClick($event)" :pokemons="pokemonsArr" />
+    <PokemonOpciones
+      @selecciono="revisarClick($event)"
+      :pokemons="pokemonsArr"
+    />
+  </div>
+  <div v-if="mostrarResultado"><h1>EQUIVOCADO</h1></div>
+  <div v-if="mostrarPokemon">
+    <h1>CORRECTO</h1>
+    <button @click="reinciar">Reiniciar</button>
   </div>
 </template>
 
@@ -54,18 +62,28 @@ export default {
       this.pokemonGanador = this.pokemonsArr[indiceGanador];
     },
     revisarClick(datoRecibido) {
-      console.log("dio click  desde padre: "+datoRecibido);
-      if(this.pokemonGanador.id===datoRecibido){
-        this.mostrarPokemon=true;
+      console.log("dio click  desde padre: " + datoRecibido);
+      if (this.pokemonGanador.id === datoRecibido) {
+        this.mostrarPokemon = true;
+        this.mostrarResultado = false;
+      } else {
+        this.mostrarResultado = true;
+        this.mostrarPokemon = false;
       }
     },
-    
+    reinciar() {
+      this.pokemonGanador = null;
+      this.mostrarPokemon = false;
+      this.mostrarResultado = false;
+      this.cargaInicial()
+    },
   },
   data() {
     return {
       pokemonsArr: [],
       pokemonGanador: null,
       mostrarPokemon: false,
+      mostrarResultado: false,
     };
   },
 };
